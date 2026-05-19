@@ -1,70 +1,23 @@
-# health-monitoring
-Cloud-based Health Monitoring System using Flask, IoT concepts, and Machine Learning for real-time patient health analysis and risk prediction.
+# 🩺 Cloud Computing Based Health Monitoring System
+
+An IoT-enabled smart healthcare monitoring system that measures real-time Heart Rate and SpO₂ using the MAX30100 sensor and NodeMCU ESP8266. The collected data is uploaded to Firebase Realtime Database, analyzed using a Machine Learning model, and displayed through a Flask web dashboard with health risk prediction and suggestions.
+
+---
+
+# 📌 Features
+
+- Real-time Heart Rate Monitoring
+- Real-time SpO₂ Monitoring
+- Firebase Realtime Database Integration
+- Flask-based Web Dashboard
+- Machine Learning Health Risk Prediction
+- Personalized Health Suggestions
+- Secure Login Authentication
+- IoT + Cloud + ML Integration
+- Low-cost healthcare monitoring solution
+
+---
 <br>
-# Cloud Computing Based Health Monitoring Project
-
-## Overview
-
-The **Cloud Computing Based Health Monitoring Project** is a Flask-based web application designed to monitor and analyze patient health data using cloud computing concepts and machine learning integration.
-
-The system collects real-time health parameters such as:
-
-* Heart Rate
-* SpO₂ (Blood Oxygen Level)
-* Predicted Health Risk
-
-The application processes the data and displays personalized health recommendations through a clean dashboard interface.
-
----
-
-## Project Features
-
-* Secure Login System
-* Health Monitoring Dashboard
-* Real-Time Heart Rate Display
-* SpO₂ Monitoring
-* Predicted Risk Analysis
-* Personalized Health Recommendation System
-* Cloud Computing Based Architecture
-* Machine Learning Integration
-* Responsive User Interface
-
----
-
-## Tech Stack
-
-### Frontend
-
-* HTML5
-* CSS3
-* Bootstrap
-
-### Backend
-
-* Python
-* Flask
-
-### Other Technologies
-
-* Cloud Computing Concepts
-* Machine Learning Based Prediction
-
----
-
-## Project Structure
-
-```bash
-Cloud-Health-Monitoring/
-│── app.py
-│── templates/
-│   ├── login.html
-│   └── dashboard.html
-│── static/
-│── README.md
-```
-
----
-
 ## Frontend Screens
 
 ### Login Page
@@ -88,111 +41,231 @@ The dashboard displays real-time patient health information including heart rate
 
 
 ---
+<br>
 
-## How the Project Works
 
-1. User logs into the system.
-2. Health data is collected from IoT-enabled devices.
-3. The backend processes the data using machine learning.
-4. Risk prediction is generated.
-5. Personalized health recommendations are displayed on the dashboard.
+# 🛠️ Tech Stack
+
+## Hardware
+- NodeMCU ESP8266
+- MAX30100 Pulse Oximeter Sensor
+- LCD Display (I2C)
+
+## Software
+- Python
+- Flask
+- Firebase Realtime Database
+- Scikit-learn
+- HTML
+- CSS
+- Arduino IDE
 
 ---
 
-## Installation and Setup
+# 🧠 Machine Learning Model
 
-### Clone the Repository
+The project uses a Logistic Regression model trained using:
+- Heart Rate
+- SpO₂ values
 
-```bash
-git clone https://github.com/your-username/your-repository-name.git
+## Risk Categories
+| Risk Level | Meaning |
+|------------|---------|
+| 0 | Healthy |
+| 1 | Mild Risk |
+| 2 | High Risk |
+| 3 | Abnormal |
+
+---
+
+# 🏗️ System Architecture
+
+## 1. Hardware Layer
+- MAX30100 collects:
+  - Heart Rate
+  - SpO₂
+
+- NodeMCU ESP8266:
+  - Reads sensor data
+  - Sends data to Firebase via Wi-Fi
+
+## 2. Cloud Layer
+- Firebase Realtime Database stores real-time health data.
+
+## 3. Application Layer
+- Flask Web App:
+  - Fetches Firebase data
+  - Applies ML prediction
+  - Displays dashboard
+  - Provides health suggestions
+
+---
+
+# ⚙️ Working Flow
+
+1. MAX30100 sensor collects health vitals.
+2. NodeMCU reads sensor data.
+3. Data is sent to Firebase Realtime Database.
+4. Flask app fetches real-time data.
+5. ML model predicts risk level.
+6. Dashboard displays:
+   - Heart Rate
+   - SpO₂
+   - Risk Prediction
+   - Health Suggestions
+
+---
+
+# 🔐 Login Credentials
+
+```txt
+Username: admin
+Password: 1234
 ```
 
-### Navigate to Project Folder
+---
 
-```bash
-cd your-repository-name
+# 📊 Sample Dashboard Output
+
+```txt
+Heart Rate: 78 bpm
+SpO₂: 96 %
+Risk Level: Mild Risk
+Suggestion:
+Stay hydrated, take proper sleep, and avoid stress.
 ```
 
-### Install Dependencies
+---
+
+# 📂 Project Structure
 
 ```bash
-pip install flask
+health-monitoring/
+│
+├── app.py
+├── model.py
+├── model.pkl
+├── templates/
+│   ├── login.html
+│   └── dashboard.html
+│
+├── readings.csv
+├── requirements.txt
+├── Arduino_Code/
+│   └── health_monitoring.ino
+│
+└── README.md
 ```
 
-### Run the Flask Application
+---
+
+# 🚀 Installation & Setup
+
+## 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/SshreyanshVITB/health-monitoring.git
+cd health-monitoring
+```
+
+---
+
+## 2️⃣ Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 3️⃣ Configure Firebase
+
+Add your Firebase Admin SDK JSON file:
+
+```bash
+firebase-adminsdk.json
+```
+
+Update Firebase URL in `app.py`.
+
+---
+
+## 4️⃣ Train ML Model
+
+```bash
+python model.py
+```
+
+This generates:
+
+```bash
+model.pkl
+```
+
+---
+
+## 5️⃣ Run Flask App
 
 ```bash
 python app.py
 ```
 
-### Open in Browser
+Open browser:
 
 ```bash
-http://127.0.0.1:5000/
+http://127.0.0.1:5000
 ```
 
 ---
 
-## Future Improvements
+# 🔌 Hardware Connections
 
-* Database Integration
-* User Registration System
-* Real IoT Sensor Integration
-* Advanced Machine Learning Model
-* Cloud Deployment
-* Mobile Responsive UI
-
----
-
-## Learning Outcomes
-
-This project helped in understanding:
-
-* Flask Web Development
-* Frontend and Backend Integration
-* Cloud Computing Concepts
-* Health Monitoring Systems
-* Machine Learning Prediction Workflow
-* Dashboard Design
-* Authentication System
+| MAX30100 | NodeMCU ESP8266 |
+|----------|----------------|
+| VIN | 3.3V |
+| GND | GND |
+| SDA | D2 |
+| SCL | D1 |
 
 ---
 
-## GitHub Commands
+# 📱 Applications
 
-### Initialize Git
-
-```bash
-git init
-```
-
-### Add Files
-
-```bash
-git add .
-```
-
-### Commit Changes
-
-```bash
-git commit -m "Initial Commit"
-```
-
-### Connect GitHub Repository
-
-```bash
-git remote add origin https://github.com/your-username/your-repository-name.git
-```
-
-### Push to GitHub
-
-```bash
-git branch -M main
-git push -u origin main
-```
+- Remote Patient Monitoring
+- Telemedicine
+- Preventive Healthcare
+- Fitness Tracking
+- Rural Healthcare Monitoring
 
 ---
 
-## Project Type
+# 🔮 Future Scope
 
-Cloud Computing | Flask Web Application | Health Monitoring System | Machine Learning Integration
+- ECG Sensor Integration
+- Blood Pressure Monitoring
+- Mobile App Development
+- SMS/Email Emergency Alerts
+- AI-based Personalized Healthcare
+- Deep Learning Models
+
+---
+
+# 📚 References
+
+1. MAX30100 Datasheet
+2. Flask Documentation
+3. Firebase Documentation
+4. Scikit-learn Documentation
+5. Research Papers on IoT Healthcare Systems
+
+---
+
+# 👨‍💻 Author
+
+Shreyansh Singh
+
+---
+
+# ⭐ If you like this project
+
+Give this repository a ⭐ on GitHub!
