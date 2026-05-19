@@ -70,17 +70,20 @@ Cloud-Health-Monitoring/
 ### Login Page
 
 The login page allows users to securely access the health monitoring system.
+<br>
+<img width="746" height="335" alt="Screenshot 2026-05-19 230832" src="https://github.com/user-attachments/assets/84716173-6c44-4685-a0c3-e83f600fb228" />
 
-![Login Page](Screenshot%202026-05-19%20230832.png)
 
 ### Dashboard Page
 
 The dashboard displays real-time patient health information including heart rate, SpO₂ level, risk prediction, and personalized recommendations.
-
-![Dashboard](Screenshot%202026-05-19%20230840.png)
-
 <br>
+<img width="747" height="316" alt="Screenshot 2026-05-19 230840" src="https://github.com/user-attachments/assets/936ea46a-0465-4e87-9fb4-8ff15bf606ce" />
+
+
+
 ### The Model
+<br>
 <img width="440" height="644" alt="Screenshot 2026-05-19 230815" src="https://github.com/user-attachments/assets/942c06f2-0a9c-4390-b5ff-66a68ae6e495" />
 
 
